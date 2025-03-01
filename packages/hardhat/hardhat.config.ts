@@ -33,13 +33,13 @@ const config: HardhatUserConfig = {
           optimizer: {
             enabled: true,
             // https://docs.soliditylang.org/en/latest/using-the-compiler.html#optimizer-options
-            runs: 200,
+            runs: 1000,
           },
         },
       },
     ],
   },
-  defaultNetwork: "localhost",
+  defaultNetwork: "sepolia",
   namedAccounts: {
     deployer: {
       // By default, it will take the first Hardhat account as the deployer
@@ -62,6 +62,7 @@ const config: HardhatUserConfig = {
     sepolia: {
       url: `https://eth-sepolia.g.alchemy.com/v2/${providerApiKey}`,
       accounts: [deployerPrivateKey],
+      allowUnlimitedContractSize: true,
     },
     arbitrum: {
       url: `https://arb-mainnet.g.alchemy.com/v2/${providerApiKey}`,
